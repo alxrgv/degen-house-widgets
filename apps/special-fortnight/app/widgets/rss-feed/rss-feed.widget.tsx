@@ -1,22 +1,28 @@
 'use client';
 
-import { useSearchParams } from 'next/navigation';
+import { useParams } from './rss-feed.params';
+import { useRssFeed } from './rss-feed.parser';
 
 export function RssFeedWidget() {
-  const params = useSearchParams();
+  const { id } = useParams();
+  const data = useRssFeed({ id });
 
-  const rssId = params.get('id');
-
-  if (rssId == null) {
+  if (data == null) {
     return null;
   }
 
   return (
-    <iframe
-      width="100%"
-      height="100%"
-      src={`https://rss.app/embed/v1/list/${rssId}`}
-      frameBorder="0"
-    />
+    <div className="max-h-full w-full overflow-auto bg-bg-primary flex flex-col gap-4 p-4 place-items-center">
+      {data.items.map((item) => (
+        <div
+          key={item.guid}
+          className="max-w-2xl min-w-[672px] min-w p-4 bg-white"
+        >
+          <a href={item.link} className="font-semibold text-justify">
+            {item.title}
+          </a>
+        </div>
+      ))}
+    </div>
   );
 }

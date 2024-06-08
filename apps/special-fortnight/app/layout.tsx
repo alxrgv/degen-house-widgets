@@ -9,7 +9,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="h-screen">
       <body className="h-screen">
-        <div className="h-screen flex justify-center place-items-center">
+        <div className="h-screen w-screen flex justify-center place-items-center">
           <Suspense fallback={null}>{children}</Suspense>
         </div>
       </body>
