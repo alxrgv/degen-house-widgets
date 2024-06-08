@@ -16,7 +16,7 @@ export function RssFeedWidget() {
       {data.items.map((item) => (
         <div
           key={item.guid}
-          className="max-w-2xl min-w-[672px] min-w p-4 bg-white"
+          className="max-w-2xl w-full m-4 min-w p-4 bg-white"
         >
           <a href={item.link} className="font-semibold text-justify">
             {item.title}
