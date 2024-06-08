@@ -4,7 +4,7 @@ import { useSearchParams } from 'next/navigation';
 
 const DEFAULT_COIN = 'bitcoin-btc';
 
-export function Coin360Widget() {
+export function CoinInfoWidget() {
   const params = useSearchParams();
 
   const coin = params.get('coin') ?? DEFAULT_COIN;
