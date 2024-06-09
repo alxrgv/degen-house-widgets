@@ -41,7 +41,7 @@ export function RssFeedWidget() {
   const data = useRssFeed({ id });
 
   return (
-    <div className="max-h-full w-full overflow-auto bg-bg-primary flex flex-col gap-4 p-4 place-items-center">
+    <div className="max-h-full w-full overflow-y-auto overflow-x-hidden bg-bg-primary flex flex-col gap-4 p-4 place-items-center">
       {data?.items.map((item) => {
         const renderer = resolveRendererForItem(item);
 
