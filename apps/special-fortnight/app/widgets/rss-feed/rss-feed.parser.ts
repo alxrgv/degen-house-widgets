@@ -3,7 +3,18 @@
 import Parser from 'rss-parser';
 import { useState, useEffect, useMemo } from 'react';
 
-type Data = {
+export type Item = {
+  content: string;
+  contentSnippet: string;
+  creator: string;
+  guid: string;
+  isoDate: string;
+  link: string;
+  pubDate: string;
+  title: string;
+};
+
+export type Data = {
   description: string;
   feedUrl: string;
   generator: string;
@@ -13,16 +24,7 @@ type Data = {
   link: string;
   title: string;
 
-  items: Array<{
-    content: string;
-    contentSnippet: string;
-    creator: string;
-    guid: string;
-    isoDate: string;
-    link: string;
-    pubDate: string;
-    title: string;
-  }>;
+  items: Array<Item>;
 };
 
 export function useRssFeed({ id }: { id: string }): Data | null {
